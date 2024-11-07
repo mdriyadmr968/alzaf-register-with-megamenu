@@ -120,7 +120,7 @@ const Megamenu = () => {
               showSideMenu ? "text-special" : "text-[#707070]"
             } cursor-pointer hover:text-special duration-100 font-medium flex flex-col items-center`}
           >
-            <HamburgerIcon  className="w-5 h-5"/>
+            <HamburgerIcon />
             <span>Menu</span>
           </li>
         </ul>

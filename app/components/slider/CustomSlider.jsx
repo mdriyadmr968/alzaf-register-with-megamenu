@@ -29,7 +29,7 @@ const CustomSlider = () => {
               key={index}
               src={image}
               alt={`Slide ${index}`}
-              className="w-[100vw] h-auto md:h-[350px]"
+              className="w-[100vw] h-auto md:h-[450px]"
             />
           ))}
         </div>

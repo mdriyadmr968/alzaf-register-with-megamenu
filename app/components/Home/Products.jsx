@@ -39,7 +39,7 @@ const Products = () => {
   ];
 
   return (
-    <div className="container mx-auto p-4 text-black">
+    <div className="custom-container mx-auto p-4 text-black">
       <div className="flex flex-col md:flex-row">
         {/* Left Column */}
         <div className="w-full md:w-3/4 p-2">
@@ -64,7 +64,9 @@ const Products = () => {
 
         {/* Right Column */}
         <div className="w-full md:w-1/4 p-2">
-          <h2 className="text-lg md:text-xl font-semibold mb-4 ">Recommended Products</h2>
+          <h2 className="text-lg md:text-xl font-semibold mb-4 ">
+            Recommended Products
+          </h2>
           {recommendedProducts.map((product) => (
             <div
               key={product.id}
