@@ -28,7 +28,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6  text-black">
+    <div className="min-h-screen flex items-center justify-center p-6  text-black bg-[#F0F0F0]">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="pb-5 max-w-6xl w-full bg-white shadow-lg rounded-lg overflow-hidden flex flex-wrap">
           {/* Left Column */}

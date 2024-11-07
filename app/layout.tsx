@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/common/Navbar";
+import TopNav from "./components/common/TopNav";
+import Footer from "./components/common/Footer";
+import BottomNav from "./components/common/BottomNav";
 import { Providers } from "./providers";
 
 
@@ -28,13 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F0F0F0]`}
-      >
-        <Providers>
-          <Navbar />
+      <body className="bg-white">
+        <div>
+            <TopNav />
+            <BottomNav />
           {children}
-        </Providers>
+            <Footer />
+        </div>
       </body>
     </html>
   );

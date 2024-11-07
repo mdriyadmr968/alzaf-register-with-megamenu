@@ -1,53 +1,32 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Image from "next/image";
+"use client";;
+import Megamenu from "./components/Home/Megamenu";
+import Products from "./components/Home/Products";
+import { useState, useEffect } from "react";
+import Modal from "./components/Modal/Modal";
 
 const images = ["/images/homebanner.png", "/images/homebanner.png"];
 
 export default function Home() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  // Effect to open modal after 5 seconds
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    const timer = setTimeout(() => {
+      openModal();
+    }, 5000); // 5000 milliseconds = 5 seconds
 
-    return () => clearInterval(intervalId);
-  }, []);
-
+    // Cleanup function to clear the timer if the component unmounts
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array to run only on mount
   return (
     <div className="relative w-full  mx-auto">
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Slide ${index}`}
-              className="w-[100vw]"
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Dot indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`h-2 w-2 rounded-full ${
-              currentIndex === index ? "bg-orange-500" : "bg-gray-300"
-            }`}
-            onClick={() => setCurrentIndex(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          ></button>
-        ))}
+      <div className="">
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
+        <Megamenu />
+        <Products />
       </div>
     </div>
   );
